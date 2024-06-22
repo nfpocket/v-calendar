@@ -850,6 +850,23 @@ export function getDatePartsOptions(parts: DateParts, rules: DatePartsRules) {
   };
 }
 
+const tryToGetDateFromString = (dateString: string) => {
+  const date = new Date(dateString);
+
+  if (isNaN(date.getTime())) {
+    if (/^(\d{1,2})\.(\d{1,2})\.(\d{2,4})$/g.test(dateString)) {
+      const [day, month, year] = dateString.split('.').map(Number);
+      if (isNaN(day) || isNaN(month) || isNaN(year)) return date;
+      if (day > 31 || month > 12) return date;
+      if (day < 1 || month < 1) return date;
+
+      return new Date(year, month - 1, day);
+    }
+  }
+
+  return date;
+};
+
 export function getNearestDatePart(
   parts: DateParts,
   range: DatePartsRange,
@@ -965,7 +982,7 @@ export function parseDate(
         }
         return date;
       })
-      .find(d => d) || new Date(dateString)
+      .find(d => d) || tryToGetDateFromString(dateString)
   );
 }
 
