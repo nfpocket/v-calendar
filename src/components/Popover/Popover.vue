@@ -91,7 +91,7 @@ export default defineComponent({
       transition: 'slide-fade',
       placement: 'bottom',
       direction: '',
-      positionFixed: false,
+      positionFixed: true,
       modifiers: [],
       isInteractive: true,
       visibility: 'click',

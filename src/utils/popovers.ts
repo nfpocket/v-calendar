@@ -25,7 +25,7 @@ export interface PopoverState {
   transition: string;
   placement: Placement;
   direction: string;
-  positionFixed: false;
+  positionFixed: boolean;
   modifiers: any[];
   isInteractive: boolean;
   visibility: PopoverVisibility;
