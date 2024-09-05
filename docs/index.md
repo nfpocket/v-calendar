@@ -21,6 +21,14 @@ If upgrading from version 2.0, be sure to view the [upgrade guide](/getting-star
   </BaseButton>
 </div>
 
+## Demo
+
+<Example centered no-code>
+  <BasicCal show-dark-mode />
+</Example>
+
+
+
 ## Theme
 
 VCalendar provides attractive default styling based on simple colors and dark mode.
